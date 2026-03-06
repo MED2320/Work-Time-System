@@ -58,6 +58,7 @@ eingabe = tk.Entry(
 )
 eingabe.pack(pady=10)
 eingabe.insert(0, "00:00")
+eingabe.bind("<Return>", lambda event: berechne_feierabend())
 
 # Button
 tk.Button(
