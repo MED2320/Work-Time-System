@@ -42,7 +42,7 @@ fenster.title("Work Time System")
 fenster.geometry("380x260")
 fenster.configure(bg="#0f172a")
 fenster.resizable(True, True)
-fenster.iconbitmap("") # Optional: Füge ein Icon hinzu
+fenster.iconbitmap("icon/clock_icon.ico") # Optional: Füge ein Icon hinzu
 
 # Titel
 tk.Label(
