@@ -88,8 +88,9 @@ stunden_spin = tk.Spinbox(
     buttonbackground="#020617",
     relief="flat"
 )
-stunden_spin.delete(00, "end")
-stunden_spin.insert(00, "08")
+jetzt = datetime.now()
+stunden_spin.delete(0, "end")
+stunden_spin.insert(0, f"{jetzt.hour:02d}")
 stunden_spin.grid(row=0, column=1, padx=5)
 
 # Label für Minuten
@@ -114,8 +115,8 @@ minuten_spin = tk.Spinbox(
     buttonbackground="#020617",
     relief="flat"
 )
-minuten_spin.delete(00, "end")
-minuten_spin.insert(00, "00")
+minuten_spin.delete(0, "end")
+minuten_spin.insert(0, f"{jetzt.minute:02d}")
 minuten_spin.grid(row=0, column=3, padx=5)
 
 # Styling für Combobox
