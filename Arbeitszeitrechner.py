@@ -88,8 +88,8 @@ stunden_spin = tk.Spinbox(
     buttonbackground="#020617",
     relief="flat"
 )
-stunden_spin.delete(0, "end")
-stunden_spin.insert(0, "08")
+stunden_spin.delete(00, "end")
+stunden_spin.insert(00, "08")
 stunden_spin.grid(row=0, column=1, padx=5)
 
 # Label für Minuten
@@ -114,14 +114,14 @@ minuten_spin = tk.Spinbox(
     buttonbackground="#020617",
     relief="flat"
 )
-minuten_spin.delete(0, "end")
-minuten_spin.insert(0, "00")
+minuten_spin.delete(00, "end")
+minuten_spin.insert(00, "00")
 minuten_spin.grid(row=0, column=3, padx=5)
 
-# Styling für Spinbox
+# Styling für Combobox
 style = ttk.Style()
 style.theme_use('clam')
-style.configure('TSpinbox', fieldbackground="#020617", foreground="#e5e7eb", background="#C0C2C9")
+style.configure('TCombobox', fieldbackground="#020617", foreground="#e5e7eb", background="#C0C2C9")
 
 # Enter-Taste bindet zur Berechnung
 stunden_spin.bind("<Return>", lambda event: berechne_feierabend())
