@@ -1,9 +1,24 @@
 import tkinter as tk
+from tkinter import ttk
 from datetime import datetime, timedelta
+
+def validate_integer(char):
+    """Nur Zahlen erlauben"""
+    return char.isdigit() or char == ""
 
 def berechne_feierabend():
     try:
-        start = datetime.strptime(eingabe.get(), "%H:%M")
+        stunden = int(stunden_spin.get())
+        minuten = int(minuten_spin.get())
+        
+        if stunden < 0 or stunden > 23 or minuten < 0 or minuten > 59:
+            ergebnis_label.config(
+                text="❌ Stunden: 0-23, Minuten: 0-59",
+                fg="#ff5555"
+            )
+            return
+        
+        start = datetime.strptime(f"{stunden:02d}:{minuten:02d}", "%H:%M")
         arbeitszeit = timedelta(hours=8, minutes=30)
         feierabend = start + arbeitszeit
         ergebnis_label.config(
@@ -12,7 +27,7 @@ def berechne_feierabend():
         )
     except ValueError:
         ergebnis_label.config(
-            text="❌ Format: HH:MM",
+            text="❌ Nur Zahlen | Stunden: 0-23, Minuten: 0-59",
             fg="#ff5555"
         )
 
@@ -26,7 +41,8 @@ fenster = tk.Tk()
 fenster.title("Work Time System")
 fenster.geometry("380x260")
 fenster.configure(bg="#0f172a")
-fenster.resizable(False, False)
+fenster.resizable(True, True)
+fenster.iconbitmap("") # Optional: Füge ein Icon hinzu
 
 # Titel
 tk.Label(
@@ -46,19 +62,70 @@ uhr_label = tk.Label(
 )
 uhr_label.pack()
 
-# Eingabe
-eingabe = tk.Entry(
-    fenster,
+# Eingabe - Stunden und Minuten mit Combobox
+eingabe_frame = tk.Frame(fenster, bg="#151922")
+eingabe_frame.pack(pady=10)
+
+# Label für Stunden
+tk.Label(
+    eingabe_frame,
+    text="",
+    font=("Segoe UI", 11),
+    fg="#38bdf8",
+    bg="#0f172a"
+).grid(row=0, column=0, padx=5)
+
+# Spinbox für Stunden (0-23)
+stunden_spin = tk.Spinbox(
+    eingabe_frame,
+    from_=0,
+    to=23,
+    width=4,
     font=("Consolas", 14),
     justify="center",
     bg="#020617",
     fg="#e5e7eb",
-    insertbackground="white",
+    buttonbackground="#020617",
     relief="flat"
 )
-eingabe.pack(pady=10)
-eingabe.insert(0, "00:00")
-eingabe.bind("<Return>", lambda event: berechne_feierabend())
+stunden_spin.delete(0, "end")
+stunden_spin.insert(0, "08")
+stunden_spin.grid(row=0, column=1, padx=5)
+
+# Label für Minuten
+tk.Label(
+    eingabe_frame,
+    text="",
+    font=("Segoe UI", 11),
+    fg="#38bdf8",
+    bg="#0f172a"
+).grid(row=0, column=2, padx=5)
+
+# Spinbox für Minuten (0-59)
+minuten_spin = tk.Spinbox(
+    eingabe_frame,
+    from_=0,
+    to=59,
+    width=4,
+    font=("Consolas", 14),
+    justify="center",
+    bg="#020617",
+    fg="#e5e7eb",
+    buttonbackground="#020617",
+    relief="flat"
+)
+minuten_spin.delete(0, "end")
+minuten_spin.insert(0, "00")
+minuten_spin.grid(row=0, column=3, padx=5)
+
+# Styling für Spinbox
+style = ttk.Style()
+style.theme_use('clam')
+style.configure('TSpinbox', fieldbackground="#020617", foreground="#e5e7eb", background="#C0C2C9")
+
+# Enter-Taste bindet zur Berechnung
+stunden_spin.bind("<Return>", lambda event: berechne_feierabend())
+minuten_spin.bind("<Return>", lambda event: berechne_feierabend())
 
 # Button
 tk.Button(
