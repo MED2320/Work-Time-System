@@ -19,7 +19,7 @@ def berechne_feierabend():
             return
         
         start = datetime.strptime(f"{stunden:02d}:{minuten:02d}", "%H:%M")
-        arbeitszeit = timedelta(hours=8, minutes=30)
+        arbeitszeit = timedelta(hours=8, minutes=30) # Standard-Arbeitszeit: 8 Stunden 30 Minuten
         feierabend = start + arbeitszeit
         ergebnis_label.config(
             text=f"Feierabend: {feierabend.strftime('%H:%M')}",
