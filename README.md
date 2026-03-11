@@ -1,127 +1,76 @@
-Gerne 👍
-Hier ist eine **saubere, moderne README.md** passend zu deinem Projekt **„Python GUI mit Live-Uhr + Feierabend-Rechner“**.
+# ⏱ Arbeitszeitrechner
 
----
-
-# ⏱ Work Time System
-
-Ein modernes **Python-GUI-Programm** mit **Live-Uhr**, das anhand der eingegebenen **Arbeitsbeginn-Zeit** automatisch deine **Feierabend-Zeit** berechnet.
-Die tägliche Arbeitszeit ist fest auf **8,5 Stunden** eingestellt.
-
----
+Ein einfaches **Python-GUI-Programm** mit **Live-Uhr**, das automatisch deine **Feierabend-Zeit** basierend auf der eingegebenen Arbeitsbeginn-Zeit berechnet. Die tägliche Arbeitszeit ist auf **8,5 Stunden** festgelegt.
 
 ## ✨ Features
 
-* 🕒 **Live-Uhr** (aktualisiert jede Sekunde)
-* ⌨️ Einfache Eingabe des Arbeitsbeginns (HH:MM)
-* 🧮 Automatische Feierabend-Berechnung
-* 🌙 Modernes Dark-Design
-* 🖥️ Benutzerfreundliche GUI mit **tkinter**
-* 📦 Optional als **Windows .exe** nutzbar
+- 🕒 **Live-Uhr** (aktualisiert jede Sekunde)
+- ⌨️ Einfache Eingabe des Arbeitsbeginns im Format HH:MM
+- 🧮 Automatische Berechnung der Feierabend-Zeit
+- 🌙 Modernes Dark-Design mit Neon-Akzenten
+- 🖥️ Benutzerfreundliche GUI mit tkinter
+- 📦 Kann als Windows .exe kompiliert werden
 
----
+## 🖼️ Vorschau
 
-## 🖼️ Vorschau (Beschreibung)
-
-* Dunkles Fenster mit Karten-Layout
-* Neon-Akzentfarben (Cyan/Blau)
-* Große, gut lesbare Schrift
-* Klar strukturierte Oberfläche
-
----
+Das Programm zeigt ein dunkles Fenster mit:
+- Live-Uhr oben
+- Eingabefeld für Arbeitsbeginn
+- Berechnen-Button
+- Ergebnis-Anzeige für Feierabend-Zeit
 
 ## 🛠️ Voraussetzungen
 
-### Für die Python-Version:
+### Für Python-Version:
+- Python 3.9 oder neuer
+- Keine zusätzlichen Bibliotheken erforderlich (tkinter ist in Python enthalten)
 
-* Python **3.9 oder neuer**
-* Keine zusätzlichen Libraries notwendig
-  (`tkinter` ist bereits enthalten)
+### Für EXE-Version:
+- Windows
+- `pyinstaller` installiert
 
-### Für die EXE-Version:
+## ▶️ Programm starten
 
-* Windows
-* `pyinstaller`
-
----
-
-## ▶️ Programm starten (Python)
-
+### Python-Version:
 ```bash
-python work_time_system.py
+python Arbeitszeitrechner.py
 ```
 
----
-
-## 📥 Eingabeformat
-
-**Arbeitsbeginn:**
-
-```
-HH:MM
-```
-
-**Beispiel:**
-
-```
-07:30
-```
-
-**Ausgabe:**
-
-```
-Feierabend: 16:00
-```
-
----
+### Eingabeformat:
+- Arbeitsbeginn: `HH:MM` (z.B. `07:30`)
+- Ausgabe: `Feierabend: 16:00`
 
 ## 📦 EXE erstellen (Windows)
 
-1️⃣ PyInstaller installieren:
-
+1. PyInstaller installieren:
 ```bash
 pip install pyinstaller
 ```
 
-2️⃣ EXE erzeugen:
-
+2. EXE erzeugen:
 ```bash
-pyinstaller --onefile --windowed work_time_system.py
+pyinstaller --onefile --windowed Arbeitszeitrechner.py
 ```
 
-3️⃣ Fertige Datei findest du unter:
-
-```
-dist/work_time_system.exe
-```
-
-✔ Kein Konsolenfenster
-✔ Läuft ohne Python-Installation
-
----
+3. Die fertige EXE findest du in `dist/Arbeitszeitrechner.exe`
 
 ## ⚙️ Anpassungen
 
-Im Code kannst du leicht ändern:
+Im Code kannst du folgende Dinge ändern:
+- Arbeitszeit (aktuell 8h 30min)
+- Farben und Schriftarten
+- Uhrformat
+- Fenstergröße
 
-* ⏱️ Arbeitszeit (Standard: 8h 30min)
-* 🎨 Farben & Schriftarten
-* 🕒 Uhrformat (12h / 24h)
-* 📐 Fenstergröße
+## 🚀 Mögliche Erweiterungen
 
----
-
-## 🚀 Ideen für Erweiterungen
-
-* ⏸ Pausenzeit einbauen
-* 💾 Letzte Startzeit speichern
-* 🎨 Theme-Auswahl
-* 📅 Wochenübersicht
-* 🔔 Feierabend-Benachrichtigung
-
----
+- Pausenzeiten berücksichtigen
+- Letzte Eingabe speichern
+- Mehrere Themes
+- Wochenübersicht
+- Benachrichtigungen
 
 ## 📄 Lizenz
 
-Dieses Projekt ist **frei nutzbar** für private Zwecke und Lernprojekte.
+Dieses Projekt ist frei für private und Bildungszwecke nutzbar.
 
